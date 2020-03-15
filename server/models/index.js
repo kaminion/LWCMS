@@ -31,7 +31,21 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+  //relationShip
+db.board.belongsTo(db.group, {
+    foreignKey: "gr_id",
+    as: "gr_id"
+  });
+  
+db.category.belongsTo(db.board, {
+    foreignKey: "bo_id",
+    as: "bo_id"
+  });
+  
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
 
 module.exports = db;

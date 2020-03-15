@@ -1,39 +1,33 @@
-const group = require("./Group");
-
 module.exports = (sequlize, DataTypes) =>
 {
-    const board = sequlize.define("board",{
-        bo_id:{
+    const category = sequlize.define("category",{
+        ca_id:{
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey:true
         },
-        gr_id:{
+        bo_id:{
             type: DataTypes.INTEGER,
             references:{
-                model: 'group',
-                key: 'gr_id'
+                model: "board",
+                key: "bo_id"
             }
         },
-        bo_name:{
+        ca_name:{
             type: DataTypes.STRING(255),
             allowNull:true,
             unique: true 
         },
-        bo_order:{
+        ca_order:{
             type:DataTypes.INTEGER,
             defaultValue:0,
-            allowNull:true
-        },
-        bo_visible:{
-            type:DataTypes.BOOLEAN,
-            defaultValue: false
+            allowNull:false
         }
     },{
         timestamp:true,
         paranoid:false,
-        tableName:"board"
+        tableName:"group"
     });
 
-    return board;
+    return category;
 }

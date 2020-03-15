@@ -1,6 +1,11 @@
 module.exports = (sequlize, DataTypes) =>
 {
     const group = sequlize.define("group",{
+        gr_id:{
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey:true
+        },
         gr_name:{
             type: DataTypes.STRING(255),
             allowNull:false,
@@ -17,13 +22,9 @@ module.exports = (sequlize, DataTypes) =>
         }
     },{
         timestamp:true,
+        paranoid:false,
         tableName:"group"
     });
-
-    group.associate = (models) =>
-    {
-        group.hasMany(models.board, {as: 'gr_id'});
-    }
 
     return group;
 }
