@@ -1,17 +1,10 @@
-module.exports = (sequlize, DataTypes) =>
+module.exports = (sequelize, DataTypes) =>
 {
-    const category = sequlize.define("category",{
+    const category = sequelize.define("category",{
         ca_id:{
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey:true
-        },
-        bo_id:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: "board",
-                key: "bo_id"
-            }
         },
         ca_name:{
             type: DataTypes.STRING(255),
@@ -26,7 +19,7 @@ module.exports = (sequlize, DataTypes) =>
     },{
         timestamp:true,
         paranoid:false,
-        tableName:"group"
+        tableName:"category"
     });
 
     return category;

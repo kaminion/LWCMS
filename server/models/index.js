@@ -31,17 +31,10 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-  //relationShip
-db.board.belongsTo(db.group, {
-    foreignKey: "gr_id",
-    as: "gr_id"
-  });
-  
-db.category.belongsTo(db.board, {
-    foreignKey: "bo_id",
-    as: "bo_id"
-  });
-  
+
+// 보드에 그룹 id 추가, 그룹에 속하게됨, 관계도 설정
+db.board.belongsTo(db.group, {foreignKey : "gr_id"});
+db.category.belongsTo(db.board, {foreignKey : "bo_id"});
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

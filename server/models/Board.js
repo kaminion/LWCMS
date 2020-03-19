@@ -1,19 +1,10 @@
-const group = require("./Group");
-
-module.exports = (sequlize, DataTypes) =>
+module.exports = (sequelize, DataTypes) =>
 {
-    const board = sequlize.define("board",{
+    const board = sequelize.define("board",{
         bo_id:{
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey:true
-        },
-        gr_id:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'group',
-                key: 'gr_id'
-            }
         },
         bo_name:{
             type: DataTypes.STRING(255),

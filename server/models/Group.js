@@ -1,6 +1,6 @@
-module.exports = (sequlize, DataTypes) =>
+module.exports = (sequelize, DataTypes) =>
 {
-    const group = sequlize.define("group",{
+    const group = sequelize.define("group",{
         gr_id:{
             type: DataTypes.INTEGER,
             autoIncrement: true,
